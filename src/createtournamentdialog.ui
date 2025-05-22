@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>239</width>
-    <height>242</height>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,24 +35,9 @@
      </item>
      <item row="1" column="1">
       <widget class="QComboBox" name="typeCombo">
-       <property name="currentText">
-        <string>Cash</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Cash</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Omaha</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Online</string>
-        </property>
-       </item>
+       <item><property name="text"><string>Cash</string></property></item>
+       <item><property name="text"><string>Omaha</string></property></item>
+       <item><property name="text"><string>Online</string></property></item>
       </widget>
      </item>
      <item row="2" column="0">
@@ -65,7 +50,7 @@
      <item row="2" column="1">
       <widget class="QDateEdit" name="dateEdit">
        <property name="displayFormat">
-        <string>d/M/yy</string>
+        <string>yyyy-MM-dd</string>
        </property>
        <property name="calendarPopup">
         <bool>true</bool>
@@ -81,9 +66,8 @@
      </item>
      <item row="3" column="1">
       <widget class="QDoubleSpinBox" name="buyInSpin">
-       <property name="maximum">
-        <double>100000.000000000000000</double>
-       </property>
+       <property name="decimals"><number>2</number></property>
+       <property name="maximum"><double>100000.0</double></property>
       </widget>
      </item>
      <item row="4" column="0">
@@ -95,9 +79,8 @@
      </item>
      <item row="4" column="1">
       <widget class="QDoubleSpinBox" name="prizePoolSpin">
-       <property name="maximum">
-        <double>1000000.000000000000000</double>
-       </property>
+       <property name="decimals"><number>2</number></property>
+       <property name="maximum"><double>1000000.0</double></property>
       </widget>
      </item>
      <item row="5" column="0">
@@ -109,15 +92,10 @@
      </item>
      <item row="5" column="1">
       <widget class="QDoubleSpinBox" name="factorSpin">
-       <property name="maximum">
-        <double>10.000000000000000</double>
-       </property>
-       <property name="singleStep">
-        <double>0.100000000000000</double>
-       </property>
-       <property name="value">
-        <double>1.000000000000000</double>
-       </property>
+       <property name="decimals"><number>2</number></property>
+       <property name="maximum"><double>10.0</double></property>
+       <property name="singleStep"><double>0.1</double></property>
+       <property name="value"><double>1.0</double></property>
       </widget>
      </item>
     </layout>

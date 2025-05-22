@@ -1,14 +1,11 @@
 #include "createtournamentdialog.h"
 #include "ui_createtournamentdialog.h"
 
-CreateTournamentDialog::CreateTournamentDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::CreateTournamentDialog)
-{
+CreateTournamentDialog::CreateTournamentDialog(QWidget *parent)
+    : QDialog(parent), ui(new Ui::CreateTournamentDialog) {
     ui->setupUi(this);
     ui->dateEdit->setDate(QDate::currentDate());
 
-    // Forbind knapperne til accept/reject
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
@@ -25,8 +22,8 @@ QString CreateTournamentDialog::getType() const {
     return ui->typeCombo->currentText();
 }
 
-QString CreateTournamentDialog::getDate() const {
-    return ui->dateEdit->date().toString("yyyy-MM-dd");
+QDate CreateTournamentDialog::getDate() const {
+    return ui->dateEdit->date();
 }
 
 double CreateTournamentDialog::getBuyIn() const {
@@ -40,11 +37,3 @@ double CreateTournamentDialog::getPrizePool() const {
 double CreateTournamentDialog::getFactor() const {
     return ui->factorSpin->value();
 }
-
-void CreateTournamentDialog::on_buttonBox_accepted()
-{
-
-}
-
-
-

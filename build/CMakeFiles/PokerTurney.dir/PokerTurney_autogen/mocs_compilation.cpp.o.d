@@ -341,6 +341,18 @@ CMakeFiles/PokerTurney.dir/PokerTurney_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
+ /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/moc_assignplayersdialog.cpp \
+ /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/assignplayersdialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h \
+ /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/player.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/tournament.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QDate \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcalendar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
  /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/moc_createtournamentdialog.cpp \
  /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/createtournamentdialog.h \
  /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/moc_mainwindow.cpp \
@@ -348,6 +360,4 @@ CMakeFiles/PokerTurney.dir/PokerTurney_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
- /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/database.h \
- /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/player.h \
- /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/tournament.h
+ /home/zybs/PokerTurney/build/PokerTurney_autogen/6YEA5652QU/../../../include/database.h

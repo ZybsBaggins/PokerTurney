@@ -27,6 +27,7 @@ set(SOURCES
     src/player.cpp
     src/createtournamentdialog.cpp
     src/addplayerdialog.cpp
+    src/assignplayersdialog.cpp
 )
 
 set(HEADERS
@@ -36,12 +37,14 @@ set(HEADERS
     include/player.h
     include/createtournamentdialog.h
     include/addplayerdialog.h
+    include/assignplayersdialog.h
 )
 
 set(UIS
     src/mainwindow.ui
     src/createtournamentdialog.ui
     src/addplayerdialog.ui
+    src/assignplayersdialog.ui
 )
 
 add_executable(PokerTurney

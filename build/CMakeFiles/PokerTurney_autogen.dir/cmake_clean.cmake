@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PokerTurney_autogen"
   "PokerTurney_autogen/include/src/ui_addplayerdialog.h"
+  "PokerTurney_autogen/include/src/ui_assignplayersdialog.h"
   "PokerTurney_autogen/include/src/ui_createtournamentdialog.h"
   "PokerTurney_autogen/include/src/ui_mainwindow.h"
   "PokerTurney_autogen/mocs_compilation.cpp"

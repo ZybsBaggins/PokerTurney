@@ -5,12 +5,14 @@ PokerTurney_autogen/timestamp: \
 	/home/zybs/PokerTurney/build/CMakeFiles/3.28.3/CMakeSystem.cmake \
 	/home/zybs/PokerTurney/build/PokerTurney_autogen/moc_predefs.h \
 	/home/zybs/PokerTurney/include/addplayerdialog.h \
+	/home/zybs/PokerTurney/include/assignplayersdialog.h \
 	/home/zybs/PokerTurney/include/createtournamentdialog.h \
 	/home/zybs/PokerTurney/include/database.h \
 	/home/zybs/PokerTurney/include/mainwindow.h \
 	/home/zybs/PokerTurney/include/player.h \
 	/home/zybs/PokerTurney/include/tournament.h \
 	/home/zybs/PokerTurney/src/addplayerdialog.cpp \
+	/home/zybs/PokerTurney/src/assignplayersdialog.cpp \
 	/home/zybs/PokerTurney/src/createtournamentdialog.cpp \
 	/home/zybs/PokerTurney/src/database.cpp \
 	/home/zybs/PokerTurney/src/main.cpp \
@@ -300,6 +302,9 @@ PokerTurney_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
 	/usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
 	/usr/include/x86_64-linux-gnu/gnu/stubs.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QDate \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \
@@ -313,6 +318,7 @@ PokerTurney_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayalgorithms.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearraylist.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayview.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/qcalendar.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qchar.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qcompare.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qcompare_impl.h \
@@ -323,6 +329,7 @@ PokerTurney_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainertools_impl.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qforeach.h \
@@ -336,6 +343,7 @@ PokerTurney_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qiterator.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qlogging.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qmargins.h \
@@ -382,6 +390,7 @@ PokerTurney_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qutf8stringview.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
@@ -550,6 +559,7 @@ PokerTurney_autogen/timestamp: \
 	/usr/share/cmake-3.28/Modules/Platform/Linux.cmake \
 	/usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake \
 	/home/zybs/PokerTurney/src/addplayerdialog.ui \
+	/home/zybs/PokerTurney/src/assignplayersdialog.ui \
 	/home/zybs/PokerTurney/src/createtournamentdialog.ui \
 	/home/zybs/PokerTurney/src/mainwindow.ui \
 	/usr/bin/cmake

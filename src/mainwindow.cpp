@@ -34,7 +34,7 @@ MainWindow::~MainWindow() {
 void MainWindow::loadTournaments() {
     ui->tournamentList->clear();
     for (const auto& t : db.getTournaments()) {
-        ui->tournamentList->addItem(QString::fromStdString(t.getName()));
+        ui->tournamentList->addItem(t.getName());
     }
 }
 
@@ -47,12 +47,10 @@ void MainWindow::onTournamentSelected() {
     if (!t) return;
 
     ui->playerList->clear();
-    for (const auto& tp : t->getParticipants()) {
-        QString line = QString::fromStdString(tp.player->getName()) +
-                       " | Placement: " +
-                       (tp.placement == -1 ? "?" : QString::number(tp.placement)) +
-                       " | On time: " +
-                       (tp.onTime ? "Yes" : "No");
+    for (const auto& tp : t->getPlayers()) {
+        QString line = tp->getName() + " - " +
+                       (tp->getPlacement() == -1 ? "?" : QString::number(tp->getPlacement())) + " - " +
+                       (tp->getOnTime() ? "Yes" : "No");
         ui->playerList->addItem(line);
     }
 }
@@ -64,7 +62,7 @@ void MainWindow::onCreateTournamentClicked() {
         db.createTournament(
             dialog.getName().toStdString(),
             dialog.getType().toStdString(),
-            dialog.getDate().toStdString(),
+            dialog.getDate().toString("yyyy-MM-dd").toStdString(), // ✅ FIX
             dialog.getBuyIn(),
             dialog.getPrizePool(),
             dialog.getFactor()
@@ -75,20 +73,11 @@ void MainWindow::onCreateTournamentClicked() {
 
 void MainWindow::onAddPlayerClicked() {
     AddPlayerDialog dialog(this);
-
-    QStringList tournaments;
-    for (const auto& t : db.getTournaments()) {
-        tournaments << QString::fromStdString(t.getName());
-    }
-    dialog.setTournaments(tournaments);
-
     if (dialog.exec() == QDialog::Accepted) {
         std::string playerName = dialog.getPlayerName().toStdString();
-        std::string tournamentName = dialog.getTournamentName().toStdString();
+        int chips = dialog.getChips();
 
-        db.addPlayer(playerName);
-        db.assignPlayerToTournament(tournamentName, playerName);
-
+        db.addPlayer(playerName, chips); // tilføj chips her hvis nødvendigt
         loadTournaments();
     }
 }

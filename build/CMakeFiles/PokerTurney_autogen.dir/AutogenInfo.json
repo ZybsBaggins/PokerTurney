@@ -173,6 +173,12 @@
 			null
 		],
 		[
+			"/home/zybs/PokerTurney/include/assignplayersdialog.h",
+			"MU",
+			"6YEA5652QU/moc_assignplayersdialog.cpp",
+			null
+		],
+		[
 			"/home/zybs/PokerTurney/include/createtournamentdialog.h",
 			"MU",
 			"6YEA5652QU/moc_createtournamentdialog.cpp",
@@ -265,6 +271,7 @@
 	"SOURCES" : 
 	[
 		[ "/home/zybs/PokerTurney/src/addplayerdialog.cpp", "MU", null ],
+		[ "/home/zybs/PokerTurney/src/assignplayersdialog.cpp", "MU", null ],
 		[ "/home/zybs/PokerTurney/src/createtournamentdialog.cpp", "MU", null ],
 		[ "/home/zybs/PokerTurney/src/database.cpp", "MU", null ],
 		[ "/home/zybs/PokerTurney/src/main.cpp", "MU", null ],

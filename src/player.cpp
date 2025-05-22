@@ -1,17 +1,15 @@
 #include "player.h"
 
-Player::Player(const std::string& name) : name(name), totalPoints(0) {
-    // Constructor implementation
-}
+Player::Player(const QString& name, int chips) : name(name), chips(chips) {}
 
-std::string Player::getName() const {
-    return name;
-}
+QString Player::getName() const { return name; }
+int Player::getChips() const { return chips; }
 
-int Player::getTotalPoints() const {
-    return totalPoints;
-}
+void Player::setPlacement(int p) { placement = p; }
+int Player::getPlacement() const { return placement; }
 
-void Player::addPoints(int points) {
-    totalPoints += points;
-}
+void Player::setOnTime(bool on) { onTime = on; }
+bool Player::getOnTime() const { return onTime; }
+
+void Player::addPoints(int p) { totalPoints += p; }
+int Player::getTotalPoints() const { return totalPoints; }

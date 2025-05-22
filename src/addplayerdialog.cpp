@@ -4,6 +4,7 @@
 AddPlayerDialog::AddPlayerDialog(QWidget *parent)
     : QDialog(parent), ui(new Ui::AddPlayerDialog) {
     ui->setupUi(this);
+
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
@@ -16,17 +17,6 @@ QString AddPlayerDialog::getPlayerName() const {
     return ui->playerNameEdit->text();
 }
 
-QString AddPlayerDialog::getTournamentName() const {
-    return ui->tournamentCombo->currentText();
+int AddPlayerDialog::getChips() const {
+    return ui->chipsSpin->value();
 }
-
-void AddPlayerDialog::setTournaments(const QStringList& tournaments) {
-    ui->tournamentCombo->clear();
-    ui->tournamentCombo->addItems(tournaments);
-}
-
-void AddPlayerDialog::on_buttonBox_accepted()
-{
-
-}
-

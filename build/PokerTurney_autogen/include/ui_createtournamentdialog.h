@@ -47,7 +47,7 @@ public:
     {
         if (CreateTournamentDialog->objectName().isEmpty())
             CreateTournamentDialog->setObjectName("CreateTournamentDialog");
-        CreateTournamentDialog->resize(239, 242);
+        CreateTournamentDialog->resize(239, 300);
         verticalLayout = new QVBoxLayout(CreateTournamentDialog);
         verticalLayout->setObjectName("verticalLayout");
         formLayout = new QFormLayout();
@@ -93,6 +93,7 @@ public:
 
         buyInSpin = new QDoubleSpinBox(CreateTournamentDialog);
         buyInSpin->setObjectName("buyInSpin");
+        buyInSpin->setDecimals(2);
         buyInSpin->setMaximum(100000.000000000000000);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, buyInSpin);
@@ -104,6 +105,7 @@ public:
 
         prizePoolSpin = new QDoubleSpinBox(CreateTournamentDialog);
         prizePoolSpin->setObjectName("prizePoolSpin");
+        prizePoolSpin->setDecimals(2);
         prizePoolSpin->setMaximum(1000000.000000000000000);
 
         formLayout->setWidget(4, QFormLayout::FieldRole, prizePoolSpin);
@@ -115,6 +117,7 @@ public:
 
         factorSpin = new QDoubleSpinBox(CreateTournamentDialog);
         factorSpin->setObjectName("factorSpin");
+        factorSpin->setDecimals(2);
         factorSpin->setMaximum(10.000000000000000);
         factorSpin->setSingleStep(0.100000000000000);
         factorSpin->setValue(1.000000000000000);
@@ -145,9 +148,8 @@ public:
         typeCombo->setItemText(1, QCoreApplication::translate("CreateTournamentDialog", "Omaha", nullptr));
         typeCombo->setItemText(2, QCoreApplication::translate("CreateTournamentDialog", "Online", nullptr));
 
-        typeCombo->setCurrentText(QCoreApplication::translate("CreateTournamentDialog", "Cash", nullptr));
         dateLabel->setText(QCoreApplication::translate("CreateTournamentDialog", "Date:", nullptr));
-        dateEdit->setDisplayFormat(QCoreApplication::translate("CreateTournamentDialog", "d/M/yy", nullptr));
+        dateEdit->setDisplayFormat(QCoreApplication::translate("CreateTournamentDialog", "yyyy-MM-dd", nullptr));
         buyInLabel->setText(QCoreApplication::translate("CreateTournamentDialog", "Buy-in:", nullptr));
         prizePoolLabel->setText(QCoreApplication::translate("CreateTournamentDialog", "Prize Pool:", nullptr));
         factorLabel->setText(QCoreApplication::translate("CreateTournamentDialog", "Factor:", nullptr));

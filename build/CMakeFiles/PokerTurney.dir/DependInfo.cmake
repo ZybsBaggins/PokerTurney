@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "PokerTurney_autogen/timestamp" "custom" "PokerTurney_autogen/deps"
   "/home/zybs/PokerTurney/build/PokerTurney_autogen/mocs_compilation.cpp" "CMakeFiles/PokerTurney.dir/PokerTurney_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/PokerTurney_autogen/mocs_compilation.cpp.o.d"
   "/home/zybs/PokerTurney/src/addplayerdialog.cpp" "CMakeFiles/PokerTurney.dir/src/addplayerdialog.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/addplayerdialog.cpp.o.d"
+  "/home/zybs/PokerTurney/src/assignplayersdialog.cpp" "CMakeFiles/PokerTurney.dir/src/assignplayersdialog.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/assignplayersdialog.cpp.o.d"
   "/home/zybs/PokerTurney/src/createtournamentdialog.cpp" "CMakeFiles/PokerTurney.dir/src/createtournamentdialog.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/createtournamentdialog.cpp.o.d"
   "/home/zybs/PokerTurney/src/database.cpp" "CMakeFiles/PokerTurney.dir/src/database.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/database.cpp.o.d"
   "/home/zybs/PokerTurney/src/main.cpp" "CMakeFiles/PokerTurney.dir/src/main.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/main.cpp.o.d"

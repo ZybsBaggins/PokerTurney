@@ -349,4 +349,11 @@ CMakeFiles/PokerTurney.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
  /home/zybs/PokerTurney/include/database.h \
  /home/zybs/PokerTurney/include/player.h \
- /home/zybs/PokerTurney/include/tournament.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /home/zybs/PokerTurney/include/tournament.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QDate \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcalendar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h

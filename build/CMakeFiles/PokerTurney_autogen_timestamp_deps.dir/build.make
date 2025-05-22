@@ -66,8 +66,8 @@ include CMakeFiles/PokerTurney_autogen_timestamp_deps.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/PokerTurney_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/PokerTurney_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2
 CMakeFiles/PokerTurney_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
+CMakeFiles/PokerTurney_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2
 CMakeFiles/PokerTurney_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/PokerTurney_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 CMakeFiles/PokerTurney_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic

@@ -16,13 +16,10 @@ public:
 
     QString getName() const;
     QString getType() const;
-    QString getDate() const;
+    QDate getDate() const;
     double getBuyIn() const;
     double getPrizePool() const;
     double getFactor() const;
-
-private slots:
-    void on_buttonBox_accepted();
 
 private:
     Ui::CreateTournamentDialog *ui;

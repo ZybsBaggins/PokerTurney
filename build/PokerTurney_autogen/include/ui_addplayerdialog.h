@@ -12,12 +12,12 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
@@ -29,8 +29,8 @@ public:
     QFormLayout *formLayout;
     QLabel *nameLabel;
     QLineEdit *playerNameEdit;
-    QLabel *tournamentLabel;
-    QComboBox *tournamentCombo;
+    QLabel *chipsLabel;
+    QSpinBox *chipsSpin;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *AddPlayerDialog)
@@ -51,15 +51,18 @@ public:
 
         formLayout->setWidget(0, QFormLayout::FieldRole, playerNameEdit);
 
-        tournamentLabel = new QLabel(AddPlayerDialog);
-        tournamentLabel->setObjectName("tournamentLabel");
+        chipsLabel = new QLabel(AddPlayerDialog);
+        chipsLabel->setObjectName("chipsLabel");
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, tournamentLabel);
+        formLayout->setWidget(1, QFormLayout::LabelRole, chipsLabel);
 
-        tournamentCombo = new QComboBox(AddPlayerDialog);
-        tournamentCombo->setObjectName("tournamentCombo");
+        chipsSpin = new QSpinBox(AddPlayerDialog);
+        chipsSpin->setObjectName("chipsSpin");
+        chipsSpin->setMinimum(0);
+        chipsSpin->setMaximum(100000);
+        chipsSpin->setValue(0);
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, tournamentCombo);
+        formLayout->setWidget(1, QFormLayout::FieldRole, chipsSpin);
 
 
         verticalLayout->addLayout(formLayout);
@@ -80,7 +83,7 @@ public:
     {
         AddPlayerDialog->setWindowTitle(QCoreApplication::translate("AddPlayerDialog", "Add Player", nullptr));
         nameLabel->setText(QCoreApplication::translate("AddPlayerDialog", "Player Name:", nullptr));
-        tournamentLabel->setText(QCoreApplication::translate("AddPlayerDialog", "Select Tournament:", nullptr));
+        chipsLabel->setText(QCoreApplication::translate("AddPlayerDialog", "Chips:", nullptr));
     } // retranslateUi
 
 };

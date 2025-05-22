@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PokerTurney.dir/PokerTurney_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/PokerTurney.dir/src/addplayerdialog.cpp.o"
   "CMakeFiles/PokerTurney.dir/src/addplayerdialog.cpp.o.d"
+  "CMakeFiles/PokerTurney.dir/src/assignplayersdialog.cpp.o"
+  "CMakeFiles/PokerTurney.dir/src/assignplayersdialog.cpp.o.d"
   "CMakeFiles/PokerTurney.dir/src/createtournamentdialog.cpp.o"
   "CMakeFiles/PokerTurney.dir/src/createtournamentdialog.cpp.o.d"
   "CMakeFiles/PokerTurney.dir/src/database.cpp.o"

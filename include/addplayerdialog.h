@@ -15,12 +15,7 @@ public:
     ~AddPlayerDialog();
 
     QString getPlayerName() const;
-    QString getTournamentName() const;
-
-    void setTournaments(const QStringList& tournaments);
-
-private slots:
-    void on_buttonBox_accepted();
+    int getChips() const;
 
 private:
     Ui::AddPlayerDialog *ui;
