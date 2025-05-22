@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "PokerTurney_autogen/include/src/ui_assignplayersdialog.h"
   "PokerTurney_autogen/include/src/ui_createtournamentdialog.h"
   "PokerTurney_autogen/include/src/ui_mainwindow.h"
+  "PokerTurney_autogen/include/src/ui_playerresultdialog.h"
   "PokerTurney_autogen/mocs_compilation.cpp"
   "PokerTurney_autogen/timestamp"
 )

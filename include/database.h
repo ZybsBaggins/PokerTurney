@@ -18,7 +18,7 @@ public:
 
     void calculateAllPoints();
 
-    const std::vector<Player>& getPlayers() const;
+    std::vector<Player>& getPlayers();
     const std::vector<Tournament>& getTournaments() const;
 
     Player* findPlayer(const std::string& name);

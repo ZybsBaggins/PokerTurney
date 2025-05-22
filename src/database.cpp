@@ -78,13 +78,14 @@ Tournament* Database::findTournament(const std::string& name) {
     return nullptr;
 }
 
-const std::vector<Player>& Database::getPlayers() const {
+std::vector<Player>& Database::getPlayers() {
     return players;
 }
 
 const std::vector<Tournament>& Database::getTournaments() const {
     return tournaments;
 }
+
 
 void Database::saveToFile(const std::string& filename) const {
     std::ofstream out(filename);
@@ -94,25 +95,28 @@ void Database::saveToFile(const std::string& filename) const {
                 << t.getType().toStdString() << ','
                 << t.getDate().toString("yyyy-MM-dd").toStdString() << ','
                 << t.getBuyIn() << ',' << t.getPrizePool() << ',' << t.getFactor() << ','
-                << p->getName().toStdString() << ','
-                << p->getPlacement() << ',' << p->getOnTime() << '\n';
+                << p->getName().toStdString() << ','                   // spiller-navn
+                << p->getPlacement() << ','                            // placering
+                << (p->getOnTime() ? 1 : 0) << '\n';                    // onTime som 1 eller 0
         }
     }
 }
 
 void Database::loadFromFile(const std::string& filename) {
+    tournaments.clear();
+
     std::ifstream in(filename);
     std::string line;
     while (std::getline(in, line)) {
         std::stringstream ss(line);
-        std::string name, type, date, playerName;
+        std::string name, type, dateStr, playerName;
         double buyIn, prizePool, factor;
         int placement;
-        bool onTime;
+        int onTime;
 
         std::getline(ss, name, ',');
         std::getline(ss, type, ',');
-        std::getline(ss, date, ',');
+        std::getline(ss, dateStr, ',');
         ss >> buyIn; ss.ignore();
         ss >> prizePool; ss.ignore();
         ss >> factor; ss.ignore();
@@ -120,12 +124,21 @@ void Database::loadFromFile(const std::string& filename) {
         ss >> placement; ss.ignore();
         ss >> onTime;
 
-        addPlayer(playerName);
-        if (!findTournament(name))
-            createTournament(name, type, date, buyIn, prizePool, factor);
+        QDate date = QDate::fromString(QString::fromStdString(dateStr), "yyyy-MM-dd");
+
+        if (!findTournament(name)) {
+            tournaments.emplace_back(
+                QString::fromStdString(name),
+                QString::fromStdString(type),
+                date,
+                buyIn, prizePool, factor
+            );
+        }
 
         Tournament* t = findTournament(name);
+        addPlayer(playerName); // sikrer at spiller findes
         Player* p = findPlayer(playerName);
+
         if (t && p) {
             t->addPlayer(p);
             t->updatePlacement(p, placement);
@@ -134,14 +147,17 @@ void Database::loadFromFile(const std::string& filename) {
     }
 }
 
+
 void Database::savePlayersToFile(const std::string& filename) const {
     std::ofstream out(filename);
     for (const auto& p : players) {
-        out << p.getName().toStdString() << "," << p.getTotalPoints() << "\n";
+        out << p.getName().toStdString() << ',' << p.getTotalPoints() << '\n';
     }
 }
 
+
 void Database::loadPlayersFromFile(const std::string& filename) {
+    players.clear();
     std::ifstream in(filename);
     std::string line;
     while (std::getline(in, line)) {
@@ -152,9 +168,7 @@ void Database::loadPlayersFromFile(const std::string& filename) {
         std::getline(ss, name, ',');
         ss >> points;
 
-        if (!findPlayer(name)) {
-            players.emplace_back(QString::fromStdString(name), 0);
-            players.back().addPoints(points);
-        }
+        players.emplace_back(QString::fromStdString(name), 0);
+        players.back().addPoints(points);
     }
 }

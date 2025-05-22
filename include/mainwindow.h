@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 #include "database.h"
 
 QT_BEGIN_NAMESPACE
@@ -20,11 +21,15 @@ private slots:
     void onTournamentSelected();
     void onAddPlayerClicked();
     void onCreateTournamentClicked();
+    void onAssignPlayersClicked();
+    void onPlayerDoubleClicked(QListWidgetItem* item);
 
 private:
     Ui::MainWindow *ui;
 
     void loadTournaments();
+    void loadPlayers();  // ✅ tilføjet
     void updateTournamentView();
 };
+
 #endif // MAINWINDOW_H

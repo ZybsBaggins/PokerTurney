@@ -203,6 +203,12 @@
 			null
 		],
 		[
+			"/home/zybs/PokerTurney/include/playerresultdialog.h",
+			"MU",
+			"6YEA5652QU/moc_playerresultdialog.cpp",
+			null
+		],
+		[
 			"/home/zybs/PokerTurney/include/tournament.h",
 			"MU",
 			"6YEA5652QU/moc_tournament.cpp",
@@ -277,6 +283,7 @@
 		[ "/home/zybs/PokerTurney/src/main.cpp", "MU", null ],
 		[ "/home/zybs/PokerTurney/src/mainwindow.cpp", "MU", null ],
 		[ "/home/zybs/PokerTurney/src/player.cpp", "MU", null ],
+		[ "/home/zybs/PokerTurney/src/playerresultdialog.cpp", "MU", null ],
 		[ "/home/zybs/PokerTurney/src/tournament.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

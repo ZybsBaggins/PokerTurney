@@ -4,32 +4,54 @@ Tournament::Tournament(const QString& name, const QString& type, const QDate& da
     : name(name), type(type), date(date), buyIn(buyIn), prizePool(prizePool), factor(factor) {}
 
 void Tournament::addPlayer(Player* player) {
-    players.append(player);
+    for (const auto& tp : participants) {
+        if (tp.player == player)
+            return; // already added
+    }
+    participants.append({player, -1, false});
 }
 
 QString Tournament::getName() const { return name; }
 QString Tournament::getType() const { return type; }
 QDate Tournament::getDate() const { return date; }
 
-void Tournament::updatePlacement(Player* player, int placement) {
-    player->setPlacement(placement);
-}
-
-void Tournament::updateOnTime(Player* player, bool onTime) {
-    player->setOnTime(onTime);
-}
-
-void Tournament::calculatePoints() {
-    for (Player* p : players) {
-        if (p->getPlacement() != -1)
-            p->addPoints(100 - p->getPlacement() * 5); // eksempel
-    }
-}
-
 double Tournament::getBuyIn() const { return buyIn; }
 double Tournament::getPrizePool() const { return prizePool; }
 double Tournament::getFactor() const { return factor; }
 
+void Tournament::updatePlacement(Player* player, int placement) {
+    for (auto& tp : participants) {
+        if (tp.player == player) {
+            tp.placement = placement;
+            return;
+        }
+    }
+}
+
+void Tournament::updateOnTime(Player* player, bool onTime) {
+    for (auto& tp : participants) {
+        if (tp.player == player) {
+            tp.onTime = onTime;
+            return;
+        }
+    }
+}
+
+void Tournament::calculatePoints() {
+    for (auto& tp : participants) {
+        if (tp.placement != -1)
+            tp.player->addPoints(100 - tp.placement * 5); // example
+    }
+}
+
 QVector<Player*> Tournament::getPlayers() const {
-    return players;
+    QVector<Player*> result;
+    for (const auto& tp : participants) {
+        result.append(tp.player);
+    }
+    return result;
+}
+
+QVector<TournamentParticipant> Tournament::getParticipants() const {
+    return participants;
 }

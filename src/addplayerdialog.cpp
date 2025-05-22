@@ -5,6 +5,7 @@ AddPlayerDialog::AddPlayerDialog(QWidget *parent)
     : QDialog(parent), ui(new Ui::AddPlayerDialog) {
     ui->setupUi(this);
 
+    // Knyt OK og Cancel knapper til dialog kontrol
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }

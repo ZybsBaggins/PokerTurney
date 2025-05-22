@@ -27,9 +27,15 @@
      </item>
      <item row="1" column="1">
       <widget class="QSpinBox" name="chipsSpin">
-       <property name="minimum"><number>0</number></property>
-       <property name="maximum"><number>100000</number></property>
-       <property name="value"><number>0</number></property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>100000</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
       </widget>
      </item>
     </layout>

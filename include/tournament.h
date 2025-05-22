@@ -6,12 +6,19 @@
 #include <QVector>
 #include "player.h"
 
+struct TournamentParticipant {
+    Player* player;
+    int placement = -1;
+    bool onTime = false;
+};
+
 class Tournament {
 public:
     Tournament(const QString& name, const QString& type, const QDate& date, double buyIn, double prizePool, double factor);
 
     void addPlayer(Player* player);
     QVector<Player*> getPlayers() const;
+    QVector<TournamentParticipant> getParticipants() const;
 
     QString getName() const;
     QString getType() const;
@@ -29,7 +36,7 @@ private:
     QString name, type;
     QDate date;
     double buyIn, prizePool, factor;
-    QVector<Player*> players;
+    QVector<TournamentParticipant> participants;
 };
 
 #endif // TOURNAMENT_H

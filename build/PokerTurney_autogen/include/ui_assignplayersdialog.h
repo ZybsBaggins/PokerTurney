@@ -57,6 +57,8 @@ public:
 
 
         retranslateUi(AssignPlayersDialog);
+        QObject::connect(buttonBox, &QDialogButtonBox::accepted, AssignPlayersDialog, qOverload<>(&QDialog::accept));
+        QObject::connect(buttonBox, &QDialogButtonBox::rejected, AssignPlayersDialog, qOverload<>(&QDialog::reject));
 
         QMetaObject::connectSlotsByName(AssignPlayersDialog);
     } // setupUi

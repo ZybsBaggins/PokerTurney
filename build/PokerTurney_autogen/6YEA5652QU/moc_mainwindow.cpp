@@ -26,13 +26,16 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[18];
     char stringdata0[11];
     char stringdata1[21];
     char stringdata2[1];
     char stringdata3[19];
     char stringdata4[26];
     char stringdata5[23];
+    char stringdata6[22];
+    char stringdata7[17];
+    char stringdata8[5];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -43,14 +46,20 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(32, 0),  // ""
         QT_MOC_LITERAL(33, 18),  // "onAddPlayerClicked"
         QT_MOC_LITERAL(52, 25),  // "onCreateTournamentClicked"
-        QT_MOC_LITERAL(78, 22)   // "onAssignPlayersClicked"
+        QT_MOC_LITERAL(78, 22),  // "onAssignPlayersClicked"
+        QT_MOC_LITERAL(101, 21),  // "onPlayerDoubleClicked"
+        QT_MOC_LITERAL(123, 16),  // "QListWidgetItem*"
+        QT_MOC_LITERAL(140, 4)   // "item"
     },
     "MainWindow",
     "onTournamentSelected",
     "",
     "onAddPlayerClicked",
     "onCreateTournamentClicked",
-    "onAssignPlayersClicked"
+    "onAssignPlayersClicked",
+    "onPlayerDoubleClicked",
+    "QListWidgetItem*",
+    "item"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -61,7 +70,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,16 +78,18 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x08,    1 /* Private */,
-       3,    0,   39,    2, 0x08,    2 /* Private */,
-       4,    0,   40,    2, 0x08,    3 /* Private */,
-       5,    0,   41,    2, 0x08,    4 /* Private */,
+       1,    0,   44,    2, 0x08,    1 /* Private */,
+       3,    0,   45,    2, 0x08,    2 /* Private */,
+       4,    0,   46,    2, 0x08,    3 /* Private */,
+       5,    0,   47,    2, 0x08,    4 /* Private */,
+       6,    1,   48,    2, 0x08,    5 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 7,    8,
 
        0        // eod
 };
@@ -99,7 +110,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'onCreateTournamentClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onAssignPlayersClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onPlayerDoubleClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>
     >,
     nullptr
 } };
@@ -114,10 +128,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->onAddPlayerClicked(); break;
         case 2: _t->onCreateTournamentClicked(); break;
         case 3: _t->onAssignPlayersClicked(); break;
+        case 4: _t->onPlayerDoubleClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *MainWindow::metaObject() const
@@ -139,13 +153,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

@@ -3,3 +3,4 @@
 #include "6YEA5652QU/moc_assignplayersdialog.cpp"
 #include "6YEA5652QU/moc_createtournamentdialog.cpp"
 #include "6YEA5652QU/moc_mainwindow.cpp"
+#include "6YEA5652QU/moc_playerresultdialog.cpp"

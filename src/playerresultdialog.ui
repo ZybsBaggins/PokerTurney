@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PlayerResultDialog</class>
+ <widget class="QDialog" name="PlayerResultDialog">
+  <property name="windowTitle">
+   <string>Rediger spilleresultat</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="placementLabel">
+       <property name="text">
+        <string>Placement:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="placementSpin">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="onTimeCheck">
+       <property name="text">
+        <string>Arrived on time</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <connections>
+   <connection>
+    <sender>buttonBox</sender>
+    <signal>accepted()</signal>
+    <receiver>PlayerResultDialog</receiver>
+    <slot>accept()</slot>
+   </connection>
+   <connection>
+    <sender>buttonBox</sender>
+    <signal>rejected()</signal>
+    <receiver>PlayerResultDialog</receiver>
+    <slot>reject()</slot>
+   </connection>
+  </connections>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/zybs/PokerTurney/src/main.cpp" "CMakeFiles/PokerTurney.dir/src/main.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/main.cpp.o.d"
   "/home/zybs/PokerTurney/src/mainwindow.cpp" "CMakeFiles/PokerTurney.dir/src/mainwindow.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/mainwindow.cpp.o.d"
   "/home/zybs/PokerTurney/src/player.cpp" "CMakeFiles/PokerTurney.dir/src/player.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/player.cpp.o.d"
+  "/home/zybs/PokerTurney/src/playerresultdialog.cpp" "CMakeFiles/PokerTurney.dir/src/playerresultdialog.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/playerresultdialog.cpp.o.d"
   "/home/zybs/PokerTurney/src/tournament.cpp" "CMakeFiles/PokerTurney.dir/src/tournament.cpp.o" "gcc" "CMakeFiles/PokerTurney.dir/src/tournament.cpp.o.d"
   )
 

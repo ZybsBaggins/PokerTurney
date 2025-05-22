@@ -347,6 +347,30 @@ src/player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokerTurney.dir/build.make CMakeFiles/PokerTurney.dir/src/player.cpp.s
 .PHONY : src/player.cpp.s
 
+src/playerresultdialog.o: src/playerresultdialog.cpp.o
+.PHONY : src/playerresultdialog.o
+
+# target to build an object file
+src/playerresultdialog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokerTurney.dir/build.make CMakeFiles/PokerTurney.dir/src/playerresultdialog.cpp.o
+.PHONY : src/playerresultdialog.cpp.o
+
+src/playerresultdialog.i: src/playerresultdialog.cpp.i
+.PHONY : src/playerresultdialog.i
+
+# target to preprocess a source file
+src/playerresultdialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokerTurney.dir/build.make CMakeFiles/PokerTurney.dir/src/playerresultdialog.cpp.i
+.PHONY : src/playerresultdialog.cpp.i
+
+src/playerresultdialog.s: src/playerresultdialog.cpp.s
+.PHONY : src/playerresultdialog.s
+
+# target to generate assembly for a file
+src/playerresultdialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PokerTurney.dir/build.make CMakeFiles/PokerTurney.dir/src/playerresultdialog.cpp.s
+.PHONY : src/playerresultdialog.cpp.s
+
 src/tournament.o: src/tournament.cpp.o
 .PHONY : src/tournament.o
 
@@ -406,6 +430,9 @@ help:
 	@echo "... src/player.o"
 	@echo "... src/player.i"
 	@echo "... src/player.s"
+	@echo "... src/playerresultdialog.o"
+	@echo "... src/playerresultdialog.i"
+	@echo "... src/playerresultdialog.s"
 	@echo "... src/tournament.o"
 	@echo "... src/tournament.i"
 	@echo "... src/tournament.s"
