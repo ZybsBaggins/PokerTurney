@@ -1,0 +1,5 @@
+/home/zybs/PokerTurney/build/CMakeFiles/PokerTurney.dir
+/home/zybs/PokerTurney/build/CMakeFiles/edit_cache.dir
+/home/zybs/PokerTurney/build/CMakeFiles/rebuild_cache.dir
+/home/zybs/PokerTurney/build/CMakeFiles/PokerTurney_autogen_timestamp_deps.dir
+/home/zybs/PokerTurney/build/CMakeFiles/PokerTurney_autogen.dir
