@@ -33,6 +33,7 @@ public:
     QHBoxLayout *buttonLayout;
     QPushButton *createTournamentButton;
     QPushButton *addPlayerButton;
+    QPushButton *assignPlayersButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -73,6 +74,11 @@ public:
 
         buttonLayout->addWidget(addPlayerButton);
 
+        assignPlayersButton = new QPushButton(centralwidget);
+        assignPlayersButton->setObjectName("assignPlayersButton");
+
+        buttonLayout->addWidget(assignPlayersButton);
+
 
         verticalLayout->addLayout(buttonLayout);
 
@@ -94,6 +100,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "PokerTurney", nullptr));
         createTournamentButton->setText(QCoreApplication::translate("MainWindow", "Create Tournament", nullptr));
         addPlayerButton->setText(QCoreApplication::translate("MainWindow", "Add Player", nullptr));
+        assignPlayersButton->setText(QCoreApplication::translate("MainWindow", "Assign Players", nullptr));
     } // retranslateUi
 
 };

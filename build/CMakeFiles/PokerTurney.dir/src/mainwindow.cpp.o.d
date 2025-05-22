@@ -402,4 +402,5 @@ CMakeFiles/PokerTurney.dir/src/mainwindow.cpp.o: \
  /home/zybs/PokerTurney/include/createtournamentdialog.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
- /home/zybs/PokerTurney/include/addplayerdialog.h
+ /home/zybs/PokerTurney/include/addplayerdialog.h \
+ /home/zybs/PokerTurney/include/assignplayersdialog.h
