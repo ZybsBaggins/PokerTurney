@@ -1256,7 +1256,7 @@
 /home/zybs/PokerTurney/include/tournament.h
 /home/zybs/PokerTurney/src/addplayerdialog.cpp
  uic:ui_addplayerdialog.h
-/home/zybs/PokerTurney/src/database.cpp
+/home/zybs/PokerTurney/include/player.h
 /home/zybs/PokerTurney/include/addplayerdialog.h
  mmc:Q_OBJECT
  mdp:/home/zybs/PokerTurney/build/PokerTurney_autogen/moc_predefs.h
@@ -1665,4 +1665,4 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
-/home/zybs/PokerTurney/include/player.h
+/home/zybs/PokerTurney/src/database.cpp

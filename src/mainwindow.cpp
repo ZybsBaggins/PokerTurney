@@ -62,11 +62,12 @@ void MainWindow::onCreateTournamentClicked() {
         db.createTournament(
             dialog.getName().toStdString(),
             dialog.getType().toStdString(),
-            dialog.getDate().toString("yyyy-MM-dd").toStdString(), // ✅ FIX
+            dialog.getDate().toString("yyyy-MM-dd").toStdString(),
             dialog.getBuyIn(),
             dialog.getPrizePool(),
             dialog.getFactor()
-            );
+        );
+        db.saveToFile("tournaments.csv"); // Save immediately after creation
         loadTournaments();
     }
 }
