@@ -1,7 +1,7 @@
 #include "tournament.h"
 
-Tournament::Tournament(const QString& name, const QString& type, const QDate& date, double buyIn, double prizePool, double factor)
-    : name(name), type(type), date(date), buyIn(buyIn), prizePool(prizePool), factor(factor) {}
+Tournament::Tournament(const QString& name, const QString& type, const QDate& date, double buyIn, double prizePool)
+    : name(name), type(type), date(date), buyIn(buyIn), prizePool(prizePool) {}
 
 void Tournament::addPlayer(Player* player) {
     for (const auto& tp : participants) {
@@ -17,7 +17,6 @@ QDate Tournament::getDate() const { return date; }
 
 double Tournament::getBuyIn() const { return buyIn; }
 double Tournament::getPrizePool() const { return prizePool; }
-double Tournament::getFactor() const { return factor; }
 
 void Tournament::updatePlacement(Player* player, int placement) {
     for (auto& tp : participants) {
@@ -38,9 +37,18 @@ void Tournament::updateOnTime(Player* player, bool onTime) {
 }
 
 void Tournament::calculatePoints() {
+    int total = participants.size();
+    if (total == 0) return;
+
     for (auto& tp : participants) {
-        if (tp.placement != -1)
-            tp.player->addPoints(100 - tp.placement * 5); // example
+        if (tp.placement != -1) {
+            double baseRatio = static_cast<double>(total - tp.placement + 1) / total;
+            double points = baseRatio * prizePool;
+            if (tp.onTime) {
+                points += 10;
+            }
+            tp.player->addPoints(static_cast<int>(points));
+        }
     }
 }
 
@@ -54,4 +62,8 @@ QVector<Player*> Tournament::getPlayers() const {
 
 QVector<TournamentParticipant> Tournament::getParticipants() const {
     return participants;
+}
+
+void Tournament::setParticipants(const QVector<TournamentParticipant>& list) {
+    participants = list;
 }

@@ -13,3 +13,7 @@ bool Player::getOnTime() const { return onTime; }
 
 void Player::addPoints(int p) { totalPoints += p; }
 int Player::getTotalPoints() const { return totalPoints; }
+
+void Player::clearPoints() {
+    totalPoints = 0;
+}

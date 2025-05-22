@@ -23,6 +23,14 @@ private slots:
     void onCreateTournamentClicked();
     void onAssignPlayersClicked();
     void onPlayerDoubleClicked(QListWidgetItem* item);
+    void onTotalPointsDoubleClicked(QListWidgetItem* item);
+    void filterTournaments(const QString& text);
+    void filterPlayers(const QString& text);
+    void filterTotalPoints(const QString& text);
+
+    void updateTotalPointsList();
+    void onRemovePlayerFromTournamentClicked();
+
 
 private:
     Ui::MainWindow *ui;

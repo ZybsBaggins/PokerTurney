@@ -12,6 +12,8 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -28,12 +30,23 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
+    QVBoxLayout *vboxLayout;
+    QLabel *tournamentLabel;
+    QLineEdit *tournamentSearch;
     QListWidget *tournamentList;
+    QVBoxLayout *vboxLayout1;
+    QLabel *playerLabel;
+    QLineEdit *playerSearch;
     QListWidget *playerList;
+    QVBoxLayout *vboxLayout2;
+    QLabel *totalPointsLabel;
+    QLineEdit *totalPointSearch;
+    QListWidget *totalPointsList;
     QHBoxLayout *buttonLayout;
     QPushButton *createTournamentButton;
     QPushButton *addPlayerButton;
     QPushButton *assignPlayersButton;
+    QPushButton *removePlayerFromTournamentButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -48,16 +61,69 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
+        vboxLayout = new QVBoxLayout();
+        vboxLayout->setObjectName("vboxLayout");
+        tournamentLabel = new QLabel(centralwidget);
+        tournamentLabel->setObjectName("tournamentLabel");
+        tournamentLabel->setAlignment(Qt::AlignCenter);
+
+        vboxLayout->addWidget(tournamentLabel);
+
+        tournamentSearch = new QLineEdit(centralwidget);
+        tournamentSearch->setObjectName("tournamentSearch");
+
+        vboxLayout->addWidget(tournamentSearch);
+
         tournamentList = new QListWidget(centralwidget);
         tournamentList->setObjectName("tournamentList");
         tournamentList->setMinimumWidth(200);
 
-        horizontalLayout->addWidget(tournamentList);
+        vboxLayout->addWidget(tournamentList);
+
+
+        horizontalLayout->addLayout(vboxLayout);
+
+        vboxLayout1 = new QVBoxLayout();
+        vboxLayout1->setObjectName("vboxLayout1");
+        playerLabel = new QLabel(centralwidget);
+        playerLabel->setObjectName("playerLabel");
+        playerLabel->setAlignment(Qt::AlignCenter);
+
+        vboxLayout1->addWidget(playerLabel);
+
+        playerSearch = new QLineEdit(centralwidget);
+        playerSearch->setObjectName("playerSearch");
+
+        vboxLayout1->addWidget(playerSearch);
 
         playerList = new QListWidget(centralwidget);
         playerList->setObjectName("playerList");
 
-        horizontalLayout->addWidget(playerList);
+        vboxLayout1->addWidget(playerList);
+
+
+        horizontalLayout->addLayout(vboxLayout1);
+
+        vboxLayout2 = new QVBoxLayout();
+        vboxLayout2->setObjectName("vboxLayout2");
+        totalPointsLabel = new QLabel(centralwidget);
+        totalPointsLabel->setObjectName("totalPointsLabel");
+        totalPointsLabel->setAlignment(Qt::AlignCenter);
+
+        vboxLayout2->addWidget(totalPointsLabel);
+
+        totalPointSearch = new QLineEdit(centralwidget);
+        totalPointSearch->setObjectName("totalPointSearch");
+
+        vboxLayout2->addWidget(totalPointSearch);
+
+        totalPointsList = new QListWidget(centralwidget);
+        totalPointsList->setObjectName("totalPointsList");
+
+        vboxLayout2->addWidget(totalPointsList);
+
+
+        horizontalLayout->addLayout(vboxLayout2);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -79,6 +145,11 @@ public:
 
         buttonLayout->addWidget(assignPlayersButton);
 
+        removePlayerFromTournamentButton = new QPushButton(centralwidget);
+        removePlayerFromTournamentButton->setObjectName("removePlayerFromTournamentButton");
+
+        buttonLayout->addWidget(removePlayerFromTournamentButton);
+
 
         verticalLayout->addLayout(buttonLayout);
 
@@ -98,9 +169,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "PokerTurney", nullptr));
+        tournamentLabel->setText(QCoreApplication::translate("MainWindow", "Turnering", nullptr));
+        playerLabel->setText(QCoreApplication::translate("MainWindow", "Spillere", nullptr));
+        totalPointsLabel->setText(QCoreApplication::translate("MainWindow", "Leaderboard", nullptr));
         createTournamentButton->setText(QCoreApplication::translate("MainWindow", "Create Tournament", nullptr));
         addPlayerButton->setText(QCoreApplication::translate("MainWindow", "Add Player", nullptr));
         assignPlayersButton->setText(QCoreApplication::translate("MainWindow", "Assign Players", nullptr));
+        removePlayerFromTournamentButton->setText(QCoreApplication::translate("MainWindow", "Remove Player", nullptr));
     } // retranslateUi
 
 };

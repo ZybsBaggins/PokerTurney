@@ -18,6 +18,7 @@ class Player {
     
         void addPoints(int p);
         int getTotalPoints() const;
+        void clearPoints();
     
     private:
         QString name;

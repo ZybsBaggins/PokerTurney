@@ -11,6 +11,7 @@ PokerTurney_autogen/timestamp: \
 	/home/zybs/PokerTurney/include/mainwindow.h \
 	/home/zybs/PokerTurney/include/player.h \
 	/home/zybs/PokerTurney/include/playerresultdialog.h \
+	/home/zybs/PokerTurney/include/playertournamenthistorydialog.h \
 	/home/zybs/PokerTurney/include/tournament.h \
 	/home/zybs/PokerTurney/src/addplayerdialog.cpp \
 	/home/zybs/PokerTurney/src/assignplayersdialog.cpp \
@@ -20,6 +21,7 @@ PokerTurney_autogen/timestamp: \
 	/home/zybs/PokerTurney/src/mainwindow.cpp \
 	/home/zybs/PokerTurney/src/player.cpp \
 	/home/zybs/PokerTurney/src/playerresultdialog.cpp \
+	/home/zybs/PokerTurney/src/playertournamenthistorydialog.cpp \
 	/home/zybs/PokerTurney/src/tournament.cpp \
 	/usr/include/alloca.h \
 	/usr/include/asm-generic/errno-base.h \
@@ -587,4 +589,5 @@ PokerTurney_autogen/timestamp: \
 	/home/zybs/PokerTurney/src/assignplayersdialog.ui \
 	/home/zybs/PokerTurney/src/createtournamentdialog.ui \
 	/home/zybs/PokerTurney/src/mainwindow.ui \
+	/home/zybs/PokerTurney/src/playertournamenthistorydialog.ui \
 	/usr/bin/cmake

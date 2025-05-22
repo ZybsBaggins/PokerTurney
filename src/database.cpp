@@ -14,12 +14,12 @@ void Database::addPlayer(const std::string& name, int chips) {
         players.emplace_back(QString::fromStdString(name), chips);
 }
 void Database::createTournament(const std::string& name, const std::string& type, const std::string& date,
-                                double buyIn, double prizePool, double factor) {
+                                double buyIn, double prizePool) {
     tournaments.emplace_back(
         QString::fromStdString(name),
         QString::fromStdString(type),
         QDate::fromString(QString::fromStdString(date), "yyyy-MM-dd"),
-        buyIn, prizePool, factor
+        buyIn, prizePool
     );
 }
 
@@ -57,6 +57,9 @@ void Database::updatePlayerOnTime(const std::string& tournamentName, const std::
 }
 
 void Database::calculateAllPoints() {
+    for (auto& p : players) {
+        p.clearPoints(); 
+    }
     for (auto& t : tournaments) {
         t.calculatePoints();
     }
@@ -94,7 +97,7 @@ void Database::saveToFile(const std::string& filename) const {
             out << t.getName().toStdString() << ','
                 << t.getType().toStdString() << ','
                 << t.getDate().toString("yyyy-MM-dd").toStdString() << ','
-                << t.getBuyIn() << ',' << t.getPrizePool() << ',' << t.getFactor() << ','
+                << t.getBuyIn() << ',' << t.getPrizePool() << ',' 
                 << tp.player->getName().toStdString() << ','  // spiller
                 << tp.placement << ','                        // placering
                 << (tp.onTime ? 1 : 0) << '\n';               // onTime
@@ -110,7 +113,7 @@ void Database::loadFromFile(const std::string& filename) {
     while (std::getline(in, line)) {
         std::stringstream ss(line);
         std::string name, type, dateStr, playerName;
-        double buyIn, prizePool, factor;
+        double buyIn, prizePool;
         int placement;
         int onTime;
 
@@ -119,7 +122,7 @@ void Database::loadFromFile(const std::string& filename) {
         std::getline(ss, dateStr, ',');
         ss >> buyIn; ss.ignore();
         ss >> prizePool; ss.ignore();
-        ss >> factor; ss.ignore();
+        //ss >> factor; ss.ignore();
         std::getline(ss, playerName, ',');
         ss >> placement; ss.ignore();
         ss >> onTime;
@@ -131,7 +134,7 @@ void Database::loadFromFile(const std::string& filename) {
                 QString::fromStdString(name),
                 QString::fromStdString(type),
                 date,
-                buyIn, prizePool, factor
+                buyIn, prizePool
             );
         }
 

@@ -34,6 +34,3 @@ double CreateTournamentDialog::getPrizePool() const {
     return ui->prizePoolSpin->value();
 }
 
-double CreateTournamentDialog::getFactor() const {
-    return ui->factorSpin->value();
-}

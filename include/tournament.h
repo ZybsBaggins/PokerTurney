@@ -14,7 +14,7 @@ struct TournamentParticipant {
 
 class Tournament {
 public:
-    Tournament(const QString& name, const QString& type, const QDate& date, double buyIn, double prizePool, double factor);
+    Tournament(const QString& name, const QString& type, const QDate& date, double buyIn, double prizePool);
 
     void addPlayer(Player* player);
     QVector<Player*> getPlayers() const;
@@ -27,15 +27,15 @@ public:
     void updatePlacement(Player* player, int placement);
     void updateOnTime(Player* player, bool onTime);
     void calculatePoints();
+    void setParticipants(const QVector<TournamentParticipant>& list);
 
     double getBuyIn() const;
     double getPrizePool() const;
-    double getFactor() const;
 
 private:
     QString name, type;
     QDate date;
-    double buyIn, prizePool, factor;
+    double buyIn, prizePool;
     QVector<TournamentParticipant> participants;
 };
 

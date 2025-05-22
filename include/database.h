@@ -12,7 +12,7 @@ public:
     void addPlayer(const std::string& name, int chips);
 
     void createTournament(const std::string& name, const std::string& type, const std::string& date,
-                          double buyIn, double prizePool, double factor);
+                          double buyIn, double prizePool);
 
     void assignPlayerToTournament(const std::string& tournamentName, const std::string& playerName);
     void updatePlayerPlacement(const std::string& tournamentName, const std::string& playerName, int placement);

@@ -3,57 +3,100 @@
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>800</width>
-    <height>500</height>
-   </rect>
+   <rect><x>0</x><y>0</y><width>800</width><height>500</height></rect>
   </property>
   <property name="windowTitle">
    <string>PokerTurney</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
+      <!-- Turnering -->
       <item>
-       <widget class="QListWidget" name="tournamentList">
-        <property name="minimumWidth">
-         <number>200</number>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout">
+        <item>
+         <widget class="QLabel" name="tournamentLabel">
+          <property name="text"><string>Turnering</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+         </widget>
+        </item>
+        <item>
+          <widget class="QLineEdit" name="tournamentSearch"/>
+        </item>
+        <item>
+         <widget class="QListWidget" name="tournamentList">
+          <property name="minimumWidth"><number>200</number></property>
+         </widget>
+        </item>
+       </layout>
       </item>
+
+      <!-- Spillere -->
       <item>
-       <widget class="QListWidget" name="playerList"/>
+       <layout class="QVBoxLayout">
+        <item>
+         <widget class="QLabel" name="playerLabel">
+          <property name="text"><string>Spillere</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+         </widget>
+        </item>
+        <item>
+          <widget class="QLineEdit" name="playerSearch"/>
+        </item>
+        <item>
+         <widget class="QListWidget" name="playerList"/>
+        </item>
+       </layout>
+      </item>
+
+      <!-- Total Points -->
+      <item>
+       <layout class="QVBoxLayout">
+        <item>
+         <widget class="QLabel" name="totalPointsLabel">
+          <property name="text"><string>Leaderboard</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+         </widget>
+        </item>
+        <item>
+          <widget class="QLineEdit" name="totalPointSearch"/>
+        </item>
+        <item>
+         <widget class="QListWidget" name="totalPointsList"/>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
+
+    <!-- Knapper -->
     <item>
      <layout class="QHBoxLayout" name="buttonLayout">
       <item>
        <widget class="QPushButton" name="createTournamentButton">
-        <property name="text">
-         <string>Create Tournament</string>
-        </property>
+        <property name="text"><string>Create Tournament</string></property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="addPlayerButton">
-        <property name="text">
-         <string>Add Player</string>
-        </property>
+        <property name="text"><string>Add Player</string></property>
        </widget>
       </item>
-        <item>
-        <widget class="QPushButton" name="assignPlayersButton">
-        <property name="text">
-        <string>Assign Players</string>
-        </property>
-        </widget>
-    </item>
+      <item>
+       <widget class="QPushButton" name="assignPlayersButton">
+        <property name="text"><string>Assign Players</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removePlayerFromTournamentButton">
+        <property name="text"><string>Remove Player</string></property>
+       </widget>
+      </item>
      </layout>
     </item>
+
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar"/>

@@ -19,7 +19,6 @@ public:
     QDate getDate() const;
     double getBuyIn() const;
     double getPrizePool() const;
-    double getFactor() const;
 
 private:
     Ui::CreateTournamentDialog *ui;

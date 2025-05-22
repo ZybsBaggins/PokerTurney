@@ -39,8 +39,6 @@ public:
     QDoubleSpinBox *buyInSpin;
     QLabel *prizePoolLabel;
     QDoubleSpinBox *prizePoolSpin;
-    QLabel *factorLabel;
-    QDoubleSpinBox *factorSpin;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *CreateTournamentDialog)
@@ -110,20 +108,6 @@ public:
 
         formLayout->setWidget(4, QFormLayout::FieldRole, prizePoolSpin);
 
-        factorLabel = new QLabel(CreateTournamentDialog);
-        factorLabel->setObjectName("factorLabel");
-
-        formLayout->setWidget(5, QFormLayout::LabelRole, factorLabel);
-
-        factorSpin = new QDoubleSpinBox(CreateTournamentDialog);
-        factorSpin->setObjectName("factorSpin");
-        factorSpin->setDecimals(2);
-        factorSpin->setMaximum(10.000000000000000);
-        factorSpin->setSingleStep(0.100000000000000);
-        factorSpin->setValue(1.000000000000000);
-
-        formLayout->setWidget(5, QFormLayout::FieldRole, factorSpin);
-
 
         verticalLayout->addLayout(formLayout);
 
@@ -152,7 +136,6 @@ public:
         dateEdit->setDisplayFormat(QCoreApplication::translate("CreateTournamentDialog", "yyyy-MM-dd", nullptr));
         buyInLabel->setText(QCoreApplication::translate("CreateTournamentDialog", "Buy-in:", nullptr));
         prizePoolLabel->setText(QCoreApplication::translate("CreateTournamentDialog", "Prize Pool:", nullptr));
-        factorLabel->setText(QCoreApplication::translate("CreateTournamentDialog", "Factor:", nullptr));
     } // retranslateUi
 
 };

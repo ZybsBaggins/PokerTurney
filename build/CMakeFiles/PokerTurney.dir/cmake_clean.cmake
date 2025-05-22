@@ -20,6 +20,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PokerTurney.dir/src/player.cpp.o.d"
   "CMakeFiles/PokerTurney.dir/src/playerresultdialog.cpp.o"
   "CMakeFiles/PokerTurney.dir/src/playerresultdialog.cpp.o.d"
+  "CMakeFiles/PokerTurney.dir/src/playertournamenthistorydialog.cpp.o"
+  "CMakeFiles/PokerTurney.dir/src/playertournamenthistorydialog.cpp.o.d"
   "CMakeFiles/PokerTurney.dir/src/tournament.cpp.o"
   "CMakeFiles/PokerTurney.dir/src/tournament.cpp.o.d"
   "PokerTurney"
