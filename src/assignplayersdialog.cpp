@@ -18,6 +18,11 @@ AssignPlayersDialog::AssignPlayersDialog(Tournament* tournament, const QVector<P
 
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &AssignPlayersDialog::on_buttonBox_accepted);
     connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &AssignPlayersDialog::reject);
+    connect(ui->selectAllButton, &QPushButton::clicked, this, &AssignPlayersDialog::selectAllPlayers);
+    connect(ui->searchLineEdit, &QLineEdit::textChanged,
+        this, &AssignPlayersDialog::filterPlayers);
+    
+
 }
 
 AssignPlayersDialog::~AssignPlayersDialog() {
@@ -33,4 +38,19 @@ void AssignPlayersDialog::on_buttonBox_accepted() {
         }
     }
     accept();
+}
+
+void AssignPlayersDialog::selectAllPlayers() {
+    QList<QCheckBox*> checkboxes = ui->scrollAreaWidgetContents->findChildren<QCheckBox*>();
+    for (QCheckBox* box : checkboxes) {
+        box->setChecked(true);
+    }
+}
+
+void AssignPlayersDialog::filterPlayers(const QString& text) {
+    QList<QCheckBox*> checkboxes = ui->scrollAreaWidgetContents->findChildren<QCheckBox*>();
+    for (QCheckBox* box : checkboxes) {
+        bool match = box->text().contains(text, Qt::CaseInsensitive);
+        box->setVisible(match);
+    }
 }

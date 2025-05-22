@@ -17,6 +17,7 @@
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 
@@ -31,6 +32,7 @@ public:
     QLineEdit *playerNameEdit;
     QLabel *chipsLabel;
     QSpinBox *chipsSpin;
+    QPushButton *selectAllButton;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *AddPlayerDialog)
@@ -67,6 +69,11 @@ public:
 
         verticalLayout->addLayout(formLayout);
 
+        selectAllButton = new QPushButton(AddPlayerDialog);
+        selectAllButton->setObjectName("selectAllButton");
+
+        verticalLayout->addWidget(selectAllButton);
+
         buttonBox = new QDialogButtonBox(AddPlayerDialog);
         buttonBox->setObjectName("buttonBox");
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
@@ -84,6 +91,7 @@ public:
         AddPlayerDialog->setWindowTitle(QCoreApplication::translate("AddPlayerDialog", "Add Player", nullptr));
         nameLabel->setText(QCoreApplication::translate("AddPlayerDialog", "Player Name:", nullptr));
         chipsLabel->setText(QCoreApplication::translate("AddPlayerDialog", "Chips:", nullptr));
+        selectAllButton->setText(QCoreApplication::translate("AddPlayerDialog", "Tilknyt alle", nullptr));
     } // retranslateUi
 
 };

@@ -14,6 +14,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -24,9 +26,11 @@ class Ui_AssignPlayersDialog
 {
 public:
     QVBoxLayout *verticalLayout;
+    QLineEdit *searchLineEdit;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayoutPlayers;
+    QPushButton *selectAllButton;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *AssignPlayersDialog)
@@ -36,6 +40,11 @@ public:
         AssignPlayersDialog->resize(400, 300);
         verticalLayout = new QVBoxLayout(AssignPlayersDialog);
         verticalLayout->setObjectName("verticalLayout");
+        searchLineEdit = new QLineEdit(AssignPlayersDialog);
+        searchLineEdit->setObjectName("searchLineEdit");
+
+        verticalLayout->addWidget(searchLineEdit);
+
         scrollArea = new QScrollArea(AssignPlayersDialog);
         scrollArea->setObjectName("scrollArea");
         scrollArea->setWidgetResizable(true);
@@ -47,6 +56,11 @@ public:
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         verticalLayout->addWidget(scrollArea);
+
+        selectAllButton = new QPushButton(AssignPlayersDialog);
+        selectAllButton->setObjectName("selectAllButton");
+
+        verticalLayout->addWidget(selectAllButton);
 
         buttonBox = new QDialogButtonBox(AssignPlayersDialog);
         buttonBox->setObjectName("buttonBox");
@@ -66,6 +80,8 @@ public:
     void retranslateUi(QDialog *AssignPlayersDialog)
     {
         AssignPlayersDialog->setWindowTitle(QCoreApplication::translate("AssignPlayersDialog", "Tilknyt spillere til turnering", nullptr));
+        searchLineEdit->setPlaceholderText(QCoreApplication::translate("AssignPlayersDialog", "S\303\270g efter spiller...", nullptr));
+        selectAllButton->setText(QCoreApplication::translate("AssignPlayersDialog", "Tilknyt alle", nullptr));
     } // retranslateUi
 
 };

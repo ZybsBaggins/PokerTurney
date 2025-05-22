@@ -255,6 +255,15 @@ void MainWindow::onRemovePlayerFromTournamentClicked() {
     Player* p = db.findPlayer(playerName.toStdString());
     if (!p) return;
 
+    // ✅ Bekræftelsesdialog
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Fjern spiller",
+              "Er du sikker på, at du vil fjerne spilleren \"" + playerName + "\" fra turneringen \"" + tournamentName + "\"?",
+              QMessageBox::Yes | QMessageBox::No);
+
+    if (reply != QMessageBox::Yes) return;
+
+    // Fjern spilleren
     QVector<TournamentParticipant> updated;
     for (const auto& tp : t->getParticipants()) {
         if (tp.player != p)
@@ -262,10 +271,10 @@ void MainWindow::onRemovePlayerFromTournamentClicked() {
     }
 
     t->setParticipants(updated);
-
     db.saveToFile("tournaments.csv");
-    onTournamentSelected(); // Opdater visning
+    onTournamentSelected(); // opdater visning
 }
+
 
 
 void MainWindow::filterTotalPoints(const QString& text) {
