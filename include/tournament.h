@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDate>
 #include <QVector>
+#include <map>
 #include "player.h"
 
 struct TournamentParticipant {
@@ -26,8 +27,10 @@ public:
 
     void updatePlacement(Player* player, int placement);
     void updateOnTime(Player* player, bool onTime);
-    void calculatePoints();
+    std::map<Player*, int> calculatePoints() const;
+
     void setParticipants(const QVector<TournamentParticipant>& list);
+
 
     double getBuyIn() const;
     double getPrizePool() const;
@@ -37,6 +40,7 @@ private:
     QDate date;
     double buyIn, prizePool;
     QVector<TournamentParticipant> participants;
+    bool pointsCalculated = false;
 };
 
 #endif // TOURNAMENT_H

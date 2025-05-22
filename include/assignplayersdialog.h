@@ -16,9 +16,12 @@ class AssignPlayersDialog : public QDialog {
 public:
     explicit AssignPlayersDialog(Tournament* tournament, const QVector<Player*>& allPlayers, QWidget *parent = nullptr);
     ~AssignPlayersDialog();
+    
 
 private slots:
     void on_buttonBox_accepted();
+    void selectAllPlayers();
+    void filterPlayers(const QString& text);
 
 private:
     Ui::AssignPlayersDialog *ui;
