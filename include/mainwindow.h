@@ -27,6 +27,8 @@ private slots:
     void filterTournaments(const QString& text);
     void filterPlayers(const QString& text);
     void filterTotalPoints(const QString& text);
+    void onPlayerListItemChanged(QListWidgetItem* item);
+    
 
     void updateTotalPointsList();
     void onRemovePlayerFromTournamentClicked();

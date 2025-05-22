@@ -42,6 +42,9 @@ MainWindow::MainWindow(QWidget *parent)
             
     connect(ui->removePlayerFromTournamentButton, &QPushButton::clicked,
             this, &MainWindow::onRemovePlayerFromTournamentClicked);
+    connect(ui->playerList, &QListWidget::itemChanged,
+            this, &MainWindow::onPlayerListItemChanged);
+        
 
     connect(ui->tournamentSearch, &QLineEdit::textChanged, this, &MainWindow::filterTournaments);
     connect(ui->playerSearch, &QLineEdit::textChanged, this, &MainWindow::filterPlayers);
@@ -76,31 +79,33 @@ void MainWindow::onTournamentSelected() {
 
     ui->playerList->clear();
 
-    int totalPlayers = t->getParticipants().size();
-    double prizePool = t->getPrizePool(); // Præmiepulje skal være tilgængelig fra Tournament
-    if (prizePool <= 0) prizePool = 1; // Beskyt mod 0 eller negative værdier
+int totalPlayers = t->getParticipants().size();
+double prizePool = t->getPrizePool();
+if (prizePool <= 0) prizePool = 1;
 
     for (const auto& tp : t->getParticipants()) {
-        QString line = tp.player->getName() + " - " +
-                       (tp.placement == -1 ? "?" : QString::number(tp.placement)) + " - " +
-                       (tp.onTime ? "Yes" : "No");
+        QString base = tp.player->getName() + " - " +
+                    (tp.placement == -1 ? "?" : QString::number(tp.placement));
 
-        // Beregn point kun hvis placering er sat
+        // Pointberegning
         double placementPoints = 0;
         if (tp.placement != -1) {
             double sqrtPrize = std::sqrt(prizePool);
             placementPoints = ((double)(totalPlayers - tp.placement + 1) / totalPlayers) * sqrtPrize * 10;
         }
-
-        // Bonuspoint
-        int bonusPoints = 0;
-        if (tp.onTime) bonusPoints += 10;
-
+        int bonusPoints = tp.onTime ? 10 : 0;
         int totalPoints = static_cast<int>(placementPoints + bonusPoints);
 
-        line += " - Points: " + QString::number(totalPoints);
-        ui->playerList->addItem(line);
+        QString line = base + " - Points: " + QString::number(totalPoints);
+
+        auto* item = new QListWidgetItem(line);
+        item->setFlags(item->flags() | Qt::ItemIsUserCheckable | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+        item->setCheckState(tp.onTime ? Qt::Checked : Qt::Unchecked);
+        item->setData(Qt::UserRole, tp.player->getName()); // navnet som opslag
+
+        ui->playerList->addItem(item);
     }
+
 
     updateTotalPointsList();
 }
@@ -286,12 +291,24 @@ void MainWindow::filterTotalPoints(const QString& text) {
 }
 
 void MainWindow::filterPlayers(const QString& text) {
-    loadPlayers(); // reset
-    for (int i = 0; i < ui->playerList->count(); ++i) {
-        QListWidgetItem* item = ui->playerList->item(i);
-        item->setHidden(!item->text().contains(text, Qt::CaseInsensitive));
+    QListWidgetItem* tournamentItem = ui->tournamentList->currentItem();
+
+    // Hvis en turnering er valgt → filtrer i turneringens spillere
+    if (tournamentItem) {
+        for (int i = 0; i < ui->playerList->count(); ++i) {
+            QListWidgetItem* item = ui->playerList->item(i);
+            item->setHidden(!item->text().contains(text, Qt::CaseInsensitive));
+        }
+    } else {
+        // Hvis ingen turnering er valgt → filtrer i hele listen (alle spillere)
+        loadPlayers();
+        for (int i = 0; i < ui->playerList->count(); ++i) {
+            QListWidgetItem* item = ui->playerList->item(i);
+            item->setHidden(!item->text().contains(text, Qt::CaseInsensitive));
+        }
     }
 }
+
 
 void MainWindow::filterTournaments(const QString& text) {
     loadTournaments(); // reset
@@ -299,4 +316,18 @@ void MainWindow::filterTournaments(const QString& text) {
         QListWidgetItem* item = ui->tournamentList->item(i);
         item->setHidden(!item->text().contains(text, Qt::CaseInsensitive));
     }
+}
+
+void MainWindow::onPlayerListItemChanged(QListWidgetItem* item) {
+    auto* tItem = ui->tournamentList->currentItem();
+    if (!tItem || !item) return;
+
+    QString playerName = item->data(Qt::UserRole).toString();
+    Player* p = db.findPlayer(playerName.toStdString());
+    Tournament* t = db.findTournament(tItem->text().toStdString());
+    if (!p || !t) return;
+
+    bool onTime = (item->checkState() == Qt::Checked);
+    t->updateOnTime(p, onTime);
+    db.saveToFile("tournaments.csv");
 }
