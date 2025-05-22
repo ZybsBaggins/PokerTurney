@@ -57,13 +57,18 @@ void Database::updatePlayerOnTime(const std::string& tournamentName, const std::
 }
 
 void Database::calculateAllPoints() {
-    for (auto& p : players) {
-        p.clearPoints(); 
+    for (auto& player : players) {
+        player.setTotalPoints(0);
     }
-    for (auto& t : tournaments) {
-        t.calculatePoints();
+
+    for (auto& tournament : tournaments) {
+        auto results = tournament.calculatePoints();
+        for (const auto& [player, points] : results) {
+            player->addPoints(points);
+        }
     }
 }
+
 
 Player* Database::findPlayer(const std::string& name) {
     for (auto& p : players) {

@@ -36,21 +36,29 @@ void Tournament::updateOnTime(Player* player, bool onTime) {
     }
 }
 
-void Tournament::calculatePoints() {
-    int total = participants.size();
-    if (total == 0) return;
+std::map<Player*, int> Tournament::calculatePoints() const {
+    std::map<Player*, int> results;
+    int totalPlayers = participants.size();
+    if (totalPlayers == 0) return results;
+    double sqrtPrize = std::sqrt(prizePool);
 
-    for (auto& tp : participants) {
+    for (const auto& tp : participants) {
+        double placementPoints = 0;
         if (tp.placement != -1) {
-            double baseRatio = static_cast<double>(total - tp.placement + 1) / total;
-            double points = baseRatio * prizePool;
-            if (tp.onTime) {
-                points += 10;
-            }
-            tp.player->addPoints(static_cast<int>(points));
+            placementPoints = ((double)(totalPlayers - tp.placement + 1) / totalPlayers) * sqrtPrize * 10;
         }
+
+        int bonus = 0;
+        if (tp.onTime) bonus += 10;
+        // Tilføj evt. early-signup logik her
+
+        int total = static_cast<int>(placementPoints + bonus);
+        results[tp.player] = total;
     }
+
+    return results;
 }
+
 
 QVector<Player*> Tournament::getPlayers() const {
     QVector<Player*> result;

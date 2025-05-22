@@ -75,24 +75,35 @@ void MainWindow::onTournamentSelected() {
     if (!t) return;
 
     ui->playerList->clear();
+
+    int totalPlayers = t->getParticipants().size();
+    double prizePool = t->getPrizePool(); // Præmiepulje skal være tilgængelig fra Tournament
+    if (prizePool <= 0) prizePool = 1; // Beskyt mod 0 eller negative værdier
+
     for (const auto& tp : t->getParticipants()) {
         QString line = tp.player->getName() + " - " +
                        (tp.placement == -1 ? "?" : QString::number(tp.placement)) + " - " +
                        (tp.onTime ? "Yes" : "No");
 
-        // Beregn points kun for denne turnering
-        int total = t->getParticipants().size();
-        double baseRatio = (tp.placement != -1) ? static_cast<double>(total - tp.placement + 1) / total : 0.0;
-        int turneyPoints = static_cast<int>(baseRatio * t->getPrizePool());
-        if (tp.onTime) turneyPoints += 10;
+        // Beregn point kun hvis placering er sat
+        double placementPoints = 0;
+        if (tp.placement != -1) {
+            double sqrtPrize = std::sqrt(prizePool);
+            placementPoints = ((double)(totalPlayers - tp.placement + 1) / totalPlayers) * sqrtPrize * 10;
+        }
 
-        line += " - Points: " + QString::number(turneyPoints);
+        // Bonuspoint
+        int bonusPoints = 0;
+        if (tp.onTime) bonusPoints += 10;
+
+        int totalPoints = static_cast<int>(placementPoints + bonusPoints);
+
+        line += " - Points: " + QString::number(totalPoints);
         ui->playerList->addItem(line);
     }
 
     updateTotalPointsList();
 }
-
 
 
 void MainWindow::onCreateTournamentClicked() {
