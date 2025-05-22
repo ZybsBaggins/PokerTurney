@@ -59,10 +59,10 @@ void MainWindow::onTournamentSelected() {
     if (!t) return;
 
     ui->playerList->clear();
-    for (const auto& tp : t->getPlayers()) {
-        QString line = tp->getName() + " - " +
-                       (tp->getPlacement() == -1 ? "?" : QString::number(tp->getPlacement())) + " - " +
-                       (tp->getOnTime() ? "Yes" : "No");
+    for (const auto& tp : t->getParticipants()) {
+        QString line = tp.player->getName() + " - "
+            + (tp.placement == -1 ? "?" : QString::number(tp.placement)) + " - "
+            + (tp.onTime ? "Yes" : "No");
         ui->playerList->addItem(line);
     }
 }

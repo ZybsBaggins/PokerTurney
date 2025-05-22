@@ -90,14 +90,14 @@ const std::vector<Tournament>& Database::getTournaments() const {
 void Database::saveToFile(const std::string& filename) const {
     std::ofstream out(filename);
     for (const auto& t : tournaments) {
-        for (const auto& p : t.getPlayers()) {
+        for (const auto& tp : t.getParticipants()) {
             out << t.getName().toStdString() << ','
                 << t.getType().toStdString() << ','
                 << t.getDate().toString("yyyy-MM-dd").toStdString() << ','
                 << t.getBuyIn() << ',' << t.getPrizePool() << ',' << t.getFactor() << ','
-                << p->getName().toStdString() << ','                   // spiller-navn
-                << p->getPlacement() << ','                            // placering
-                << (p->getOnTime() ? 1 : 0) << '\n';                    // onTime som 1 eller 0
+                << tp.player->getName().toStdString() << ','  // spiller
+                << tp.placement << ','                        // placering
+                << (tp.onTime ? 1 : 0) << '\n';               // onTime
         }
     }
 }
@@ -136,7 +136,7 @@ void Database::loadFromFile(const std::string& filename) {
         }
 
         Tournament* t = findTournament(name);
-        addPlayer(playerName); // sikrer at spiller findes
+        addPlayer(playerName);
         Player* p = findPlayer(playerName);
 
         if (t && p) {
@@ -146,6 +146,7 @@ void Database::loadFromFile(const std::string& filename) {
         }
     }
 }
+
 
 
 void Database::savePlayersToFile(const std::string& filename) const {
